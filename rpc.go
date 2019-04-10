@@ -2,7 +2,7 @@ package omnilayer
 
 import "github.com/xiaods/omnilayer-go/omnijson"
 
-func (c *Client) OmniFoundedSend(from, to string, propertyid, amount int64, fee string) (omnijson.OmniFoundedSendResult, error) {
+func (c *Client) OmniFoundedSend(from, to string, propertyid int64, amount, fee string) (omnijson.OmniFoundedSendResult, error) {
 	return futureOmniFoundedSend(c.do(omnijson.OmniFoundedSendCommand{
 		From:     from,
 		To:       to,

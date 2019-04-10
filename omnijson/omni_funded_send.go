@@ -8,7 +8,7 @@ type OmniFoundedSendCommand struct {
 	From     string `json:"fromaddress"`
 	To       string `json:"toaddress"`
 	ProperID int64  `json:"propertyid"`
-	Amount   int64  `json:"amount"`
+	Amount   string `json:"amount"`
 	Fee      string `json:"feeaddress"`
 }
 
