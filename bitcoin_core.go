@@ -6,10 +6,25 @@ import (
 	"github.com/xiaods/omnilayer-go/omnijson"
 )
 
+// =========GetAccountAddress==================
+type futureGetAccountAddress chan *response
+
+func (f futureGetAccountAddress) Receive() (omnijson.GetAccountAddressResult, error) {
+	var result omnijson.GetAddressesByAccountResult
+
+	data, err := receive(f)
+	if err != nil {
+		return result, err
+	}
+
+	err = json.Unmarshal(data, &result)
+	return result, err
+}
+
 type futureGetAddressesByAccount chan *response
 
-func (f futureGetAddressesByAccount) Receive() (omnijson.GetAddressesByAccountResult, error) {
-	var result omnijson.GetAddressesByAccountResult
+func (f futureGetAddressesByAccount) Receive() (omnijson.GetAccountAddressResult, error) {
+	var result omnijson.GetAccountAddressResult
 
 	data, err := receive(f)
 	if err != nil {
