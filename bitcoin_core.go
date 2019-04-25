@@ -10,7 +10,7 @@ import (
 type futureGetAccountAddress chan *response
 
 func (f futureGetAccountAddress) Receive() (omnijson.GetAccountAddressResult, error) {
-	var result omnijson.GetAddressesByAccountResult
+	var result omnijson.GetAccountAddressResult
 
 	data, err := receive(f)
 	if err != nil {
@@ -23,8 +23,8 @@ func (f futureGetAccountAddress) Receive() (omnijson.GetAccountAddressResult, er
 
 type futureGetAddressesByAccount chan *response
 
-func (f futureGetAddressesByAccount) Receive() (omnijson.GetAccountAddressResult, error) {
-	var result omnijson.GetAccountAddressResult
+func (f futureGetAddressesByAccount) Receive() (omnijson.GetAddressesByAccountResult, error) {
+	var result omnijson.GetAddressesByAccountResult
 
 	data, err := receive(f)
 	if err != nil {
